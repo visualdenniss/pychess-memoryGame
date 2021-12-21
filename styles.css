@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: #161512 linear-gradient(to bottom, #2e2a24, #161512 116px)
+    no-repeat;
+  font-family: 'Noto Sans', Sans-Serif;
+}
+
+a {
+  font-size: 25px;
+  padding: 20px;
+  height: 60px;
+  width: 150px;
+  color: #bababa;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#replay {
+  margin: auto;
+  text-transform: uppercase;
+  padding: 15px 2px;
+  font-size: 1.1rem;
+  background: linear-gradient(to bottom, #3c3934, #33312e 100%);
+  color: #999;
+  border: none;
+  border-radius: 3px;
+  width: 200px;
+  cursor: pointer;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+#replay:hover {
+  background: linear-gradient(rgb(68, 65, 59), rgb(59, 57, 53) 100%);
+  color: #ccc;
+}
+
+#replay:active {
+  transform: scale(0.97);
+}
+
+.memory-game {
+  width: 350px;
+  height: 350px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  margin-top: 50px;
+  perspective: 1000px;
+  background: url(img/zen.png);
+  background-size: cover;
+  border-radius: 3px;
+}
+
+.memory-card {
+  width: calc(25% - 10px);
+  height: calc(25% - 10px);
+  position: relative;
+  margin: 5px;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.memory-card:active {
+  transform: scale(0.97);
+  transition: transform 0.2s;
+}
+
+.memory-card.flip {
+  transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  backface-visibility: hidden;
+}
+
+.front-face {
+  transform: rotateY(180deg);
+}
